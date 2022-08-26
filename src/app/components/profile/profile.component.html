@@ -1,1 +1,6 @@
-<app-address></app-address>
+<ng-container   >
+  <p>{{ (user$ | async)?.name }}</p>
+  <p>{{ (user$ | async)?.age }}</p>
+</ng-container>
+
+<app-address [address]="(user$ | async)?.address || {}"></app-address>

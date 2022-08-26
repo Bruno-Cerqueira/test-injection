@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Address } from 'src/app/services/address.service';
+import { User } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-address',
@@ -11,5 +13,5 @@ export class AddressComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  @Input() address: Address | null = {};
 }
