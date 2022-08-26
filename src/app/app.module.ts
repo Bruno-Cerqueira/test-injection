@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddressComponent } from './components/profile/address/address.component';
+import { AdminService, UserToken } from './services/admin.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,12 @@ import { AddressComponent } from './components/profile/address/address.component
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: UserToken,
+      useClass: AdminService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
