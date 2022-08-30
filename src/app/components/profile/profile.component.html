@@ -1,6 +1,11 @@
-<ng-container   >
-  <p>{{ (user$ | async)?.name }}</p>
-  <p>{{ (user$ | async)?.age }}</p>
-</ng-container>
+<form [formGroup]="formUser">
+  <label for="first"></label>
+  <input type="text" id="first" formControlName="name">
+  <label for="second"></label>
+  <input type="text" id="second" formControlName="age">
+</form>
 
+<!--
+  Take care little bird
+-->
 <app-address [address]="(user$ | async)?.address || {}"></app-address>
