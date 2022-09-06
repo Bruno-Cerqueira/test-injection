@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Address } from './address.service';
 import { UserDataService } from './admin.service';
+import { User } from './user.service';
 
-export interface User {
-  name?: string,
-  age?: number,
-  address?: Address
-}
-
-export class UserService implements UserDataService {
+@Injectable({
+  providedIn: 'root'
+})
+export class ClientService implements UserDataService {
 
   private _user: BehaviorSubject<User> = new BehaviorSubject({});
 
@@ -17,11 +14,11 @@ export class UserService implements UserDataService {
 
   constructor () {
     this._user.next({
-      name: "User service",
-      age: 40,
+      name: "Client Service",
+      age: 60,
       address: {
-        street: "Avenida Paulista",
-        number: 20
+        street: "client Paulista",
+        number: 10
       }
     })
   }

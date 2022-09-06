@@ -7,12 +7,15 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AddressComponent } from './components/profile/address/address.component';
 import { AdminService, UserToken } from './services/admin.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClientService } from './services/client.service';
+import { ApplyServiceDirective } from './directives/apply-service.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    AddressComponent
+    AddressComponent,
+    ApplyServiceDirective
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   providers: [
     {
       provide: UserToken,
-      useClass: AdminService
+      useClass: ClientService
     }
   ],
   bootstrap: [AppComponent]

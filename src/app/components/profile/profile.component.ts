@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   user$: Observable<User> | null = null;
   formUser: FormGroup = this.formBuilder.group({});
 
-  constructor(@Inject(UserToken) userService: UserDataService, private formBuilder: FormBuilder) { 
+  constructor(@Inject(UserToken) userService: UserDataService, private formBuilder: FormBuilder) {
     this.user$ = userService.user.pipe(tap((value)=> {
       this.formUser.patchValue(value)
     }))
