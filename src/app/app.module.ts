@@ -7,6 +7,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AddressComponent } from './components/profile/address/address.component';
 import { AdminService, UserToken } from './services/admin.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormModule } from './reactive-form/reactive-form.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ReactiveFormModule
   ],
   providers: [
     {
