@@ -9,16 +9,21 @@ import { User, UserService } from 'src/app/services/user.service';
 })
 export class UserFormComponent implements OnInit {
 
-  @Input() user: User | null;
+  @Input() user!: User | null;
 
   public formUser!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) { 
     this.formUser = this.fb.group({
       name: [null, Validators.required],
       age: [null, Validators.required],
+    })
+  }
+
+  ngOnInit(): void {
+    this.formUser.setValue({
+      name: this.user?.name,
+      age: this.user?.age
     })
   }
 }

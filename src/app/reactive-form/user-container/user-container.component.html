@@ -1,1 +1,1 @@
-<app-user-form [user]="user$ | async"></app-user-form>
+<app-user-form *ngIf="user$ | async as user" [user]="user"></app-user-form>
