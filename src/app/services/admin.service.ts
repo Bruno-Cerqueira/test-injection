@@ -8,7 +8,7 @@ export interface UserDataService {
 export var UserToken = new InjectionToken<UserDataService>( "User Data" );
 
 export class AdminService implements UserDataService {
-  private _user: BehaviorSubject<User> = new BehaviorSubject({});
+  private _user: BehaviorSubject<User> = new BehaviorSubject({} as User);
 
 
 
@@ -16,7 +16,7 @@ export class AdminService implements UserDataService {
 
   constructor () {
     this._user.next({
-      name: "Junior",
+      name: "Antonio",
       age: 20,
       address: {
         street: "Avenida Paulista",

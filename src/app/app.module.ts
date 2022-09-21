@@ -8,6 +8,7 @@ import { AddressComponent } from './components/profile/address/address.component
 import { AdminService, UserToken } from './services/admin.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormModule } from './reactive-form/reactive-form.module';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [

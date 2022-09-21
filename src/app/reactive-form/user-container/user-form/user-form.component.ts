@@ -11,13 +11,13 @@ export class UserFormComponent implements OnInit {
 
   @Input() user!: User | null;
 
-  public formUser!: FormGroup;
+  public formUser: FormGroup = this.fb.group({
+    name: [null, Validators.required],
+    age: [null, Validators.required],
+  });
 
   constructor(private fb: FormBuilder) { 
-    this.formUser = this.fb.group({
-      name: [null, Validators.required],
-      age: [null, Validators.required],
-    })
+    
   }
 
   ngOnInit(): void {

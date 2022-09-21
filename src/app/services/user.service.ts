@@ -4,14 +4,14 @@ import { Address } from './address.service';
 import { UserDataService } from './admin.service';
 
 export interface User {
-  name?: string,
+  name: string,
   age?: number,
   address?: Address
 }
 
 export class UserService implements UserDataService {
 
-  private _user: BehaviorSubject<User> = new BehaviorSubject({});
+  private _user: BehaviorSubject<User> = new BehaviorSubject({} as User);
 
   public readonly user: Observable<User> = this._user.asObservable();
 
