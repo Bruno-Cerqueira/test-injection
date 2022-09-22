@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddressComponent } from './components/profile/address/address.component';
-import { AdminService, UserToken } from './services/admin.service';
+import { UserToken } from './services/admin.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormModule } from './reactive-form/reactive-form.module';
-import { UserService } from './services/user.service';
+import { ClientService } from './services/client.service';
+import { ApplyServiceDirective } from './directives/apply-service.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    AddressComponent
+    AddressComponent,
+    ApplyServiceDirective
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,7 @@ import { UserService } from './services/user.service';
   providers: [
     {
       provide: UserToken,
-      useClass: AdminService
+      useClass: ClientService
     }
   ],
   bootstrap: [AppComponent]

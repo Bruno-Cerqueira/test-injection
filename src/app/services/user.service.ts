@@ -17,7 +17,7 @@ export class UserService implements UserDataService {
 
   constructor () {
     this._user.next({
-      name: "Junior",
+      name: "User service",
       age: 40,
       address: {
         street: "Avenida Paulista",

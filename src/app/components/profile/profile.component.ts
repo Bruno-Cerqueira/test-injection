@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   formUser: FormGroup = this.formBuilder.group({});
   getName = getName().subscribe(console.log);
 
-  constructor(@Inject(UserToken) userService: UserDataService, private formBuilder: FormBuilder) { 
+  constructor(@Inject(UserToken) userService: UserDataService, private formBuilder: FormBuilder) {
     this.user$ = userService.user.pipe(tap((value)=> {
       this.formUser.patchValue(value)
     }))
