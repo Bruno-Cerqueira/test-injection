@@ -8,7 +8,7 @@ import { User } from './user.service';
 })
 export class ClientService implements UserDataService {
 
-  private _user: BehaviorSubject<User> = new BehaviorSubject({});
+  private _user: BehaviorSubject<User> = new BehaviorSubject({} as User);
 
   public readonly user: Observable<User> = this._user.asObservable();
 
