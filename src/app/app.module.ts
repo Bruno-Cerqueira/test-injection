@@ -12,6 +12,9 @@ import { ClientService } from './services/client.service';
 import { ApplyServiceDirective } from './directives/apply-service.directive';
 import { MultiDirectiveComponent } from './multi-directive/multi-directive.component';
 import { ExampleComponent } from './multi-directive/example/example.component';
+import { EMPLOYEE_LIST } from './services/employee-token';
+import { ArtEmployeeService } from './services/art-employee.service';
+import { ScienceEmployeeService } from './services/science-employee.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,11 @@ import { ExampleComponent } from './multi-directive/example/example.component';
     {
       provide: UserToken,
       useClass: ClientService
-    }
+    },
+    [
+      { provide: EMPLOYEE_LIST, useClass: ArtEmployeeService, multi: true },
+      { provide: EMPLOYEE_LIST, useClass: ScienceEmployeeService, multi: true }
+    ]
   ],
   bootstrap: [AppComponent]
 })
