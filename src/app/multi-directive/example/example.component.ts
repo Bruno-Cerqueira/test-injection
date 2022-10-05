@@ -12,6 +12,7 @@ export class ExampleComponent implements OnInit {
   constructor(@Inject(EMPLOYEE_LIST) private employeeList: IEmployeeList[]) { }
 
   ngOnInit(): void {
+    console.log(this.employeeList.find(employeeListService => employeeListService.employeeType == "art"))
   }
 
 }
