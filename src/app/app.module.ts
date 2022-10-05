@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddressComponent } from './components/profile/address/address.component';
@@ -15,6 +14,8 @@ import { ExampleComponent } from './multi-directive/example/example.component';
 import { EMPLOYEE_LIST } from './services/employee-token';
 import { ArtEmployeeService } from './services/art-employee.service';
 import { ScienceEmployeeService } from './services/science-employee.service';
+import { ListContainerComponent } from './components/container/list-container/list-container.component';
+import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.module';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,14 @@ import { ScienceEmployeeService } from './services/science-employee.service';
     AddressComponent,
     ApplyServiceDirective,
     MultiDirectiveComponent,
-    ExampleComponent
+    ExampleComponent,
+    ListContainerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ReactiveFormsModule,
-    ReactiveFormModule
+    ReactiveFormModule,
+    AppRoutingModuleModule
   ],
   providers: [
     {
