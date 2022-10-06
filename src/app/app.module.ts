@@ -18,6 +18,7 @@ import { ListContainerComponent } from './components/container/list-container/li
 import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.module';
 import { StoreModule } from '@ngrx/store';
 import { CounterComponent } from './counter/counter.component';
+import { counterReducer } from './store/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { CounterComponent } from './counter/counter.component';
     ReactiveFormsModule,
     ReactiveFormModule,
     AppRoutingModuleModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ count: counterReducer })
   ],
   providers: [
     {
