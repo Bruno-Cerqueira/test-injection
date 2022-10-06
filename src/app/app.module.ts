@@ -17,6 +17,7 @@ import { ScienceEmployeeService } from './services/science-employee.service';
 import { ListContainerComponent } from './components/container/list-container/list-container.component';
 import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.module';
 import { StoreModule } from '@ngrx/store';
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StoreModule } from '@ngrx/store';
     ApplyServiceDirective,
     MultiDirectiveComponent,
     ExampleComponent,
-    ListContainerComponent
+    ListContainerComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
