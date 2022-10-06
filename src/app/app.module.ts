@@ -16,6 +16,7 @@ import { ArtEmployeeService } from './services/art-employee.service';
 import { ScienceEmployeeService } from './services/science-employee.service';
 import { ListContainerComponent } from './components/container/list-container/list-container.component';
 import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.
     BrowserModule,
     ReactiveFormsModule,
     ReactiveFormModule,
-    AppRoutingModuleModule
+    AppRoutingModuleModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [
     {
