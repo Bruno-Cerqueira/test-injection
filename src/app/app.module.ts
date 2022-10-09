@@ -17,8 +17,6 @@ import { ScienceEmployeeService } from './services/science-employee.service';
 import { ListContainerComponent } from './components/container/list-container/list-container.component';
 import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.module';
 import { StoreModule } from '@ngrx/store';
-import { CounterComponent } from './counter/counter.component';
-import { counterReducer } from './store-data/counter/counter.reducer';
 import { StoreDataModule } from './store-data/store-data.module';
 
 @NgModule({
@@ -30,7 +28,6 @@ import { StoreDataModule } from './store-data/store-data.module';
     MultiDirectiveComponent,
     ExampleComponent,
     ListContainerComponent,
-    CounterComponent
   ],
   imports: [
     BrowserModule,
