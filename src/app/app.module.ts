@@ -19,6 +19,7 @@ import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.
 import { StoreModule } from '@ngrx/store';
 import { CounterComponent } from './counter/counter.component';
 import { counterReducer } from './store-data/counter/counter.reducer';
+import { StoreDataModule } from './store-data/store-data.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { counterReducer } from './store-data/counter/counter.reducer';
     ReactiveFormsModule,
     ReactiveFormModule,
     AppRoutingModuleModule,
-    StoreModule.forRoot({ count: counterReducer })
+    StoreModule.forRoot({}),
+    StoreDataModule
   ],
   providers: [
     {
