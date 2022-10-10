@@ -18,6 +18,7 @@ import { ListContainerComponent } from './components/container/list-container/li
 import { AppRoutingModuleModule } from './app-routing-module/app-routing-module.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDataModule } from './store-data/store-data.module';
+import { CounterContainerComponent } from './components/container/counter-container/counter-container.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { StoreDataModule } from './store-data/store-data.module';
     MultiDirectiveComponent,
     ExampleComponent,
     ListContainerComponent,
+    CounterContainerComponent,
   ],
   imports: [
     BrowserModule,
