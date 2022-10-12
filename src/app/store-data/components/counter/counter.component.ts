@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { decrement, increment, reset } from '../../counter/counter.actions';
 import { ICounter } from '../../counter/counter.reducer';
 
@@ -10,10 +10,12 @@ import { ICounter } from '../../counter/counter.reducer';
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent {
-  count$: Observable<ICounter[]>;
+  count$: Observable<ICounter | undefined>;
  
   constructor(private store: Store<{ count: ICounter[] }>) {
-    this.count$ = store.select('count');
+    this.count$ = store.select('count').pipe(map(count => {
+      return count.find(counter => counter.id === 0)
+    }));
   }
  
   increment() {
