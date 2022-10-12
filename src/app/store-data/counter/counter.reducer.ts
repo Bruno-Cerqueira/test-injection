@@ -1,11 +1,44 @@
 import { createReducer, on } from '@ngrx/store';
 import { increment, decrement, reset } from './counter.actions';
 
-export const initialState = 0;
+export interface ICounter {
+  id: number,
+  userId: number,
+  value: number,
+}
 
 export const counterReducer = createReducer(
-  initialState,
-  on(increment, (state) => state + 1),
-  on(decrement, (state) => state - 1),
-  on(reset, (state) => 0)
+  [] as ICounter[],
+  on(increment, (state, { counterId }) =>  {
+    return incrementCounter(state, counterId)
+  }),
+  on(decrement, (state, { counterId }) =>  {
+    return decrementCounter(state, counterId)
+  }),
+  on(reset, (state, { counterId }) =>  {
+    return resetCounter(state, counterId)
+  })
 );
+
+
+const incrementCounter = (state: ICounter[], counterId: number) => {
+  return state.map(counter => {
+    if(counter.id == counterId) counter.value + 1
+    return counter
+  })
+}
+
+const decrementCounter = (state: ICounter[], counterId: number) => {
+  return state.map(counter => {
+    if(counter.id == counterId) counter.value - 1
+    return counter
+  })
+}
+
+const resetCounter = (state: ICounter[], counterId: number) => {
+  return state.map(counter => {
+    if(counter.id == counterId) counter.value = 0
+    return counter
+  })
+}
+
