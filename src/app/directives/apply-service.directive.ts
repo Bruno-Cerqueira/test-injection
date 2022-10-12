@@ -15,7 +15,6 @@ import { ClientService } from '../services/client.service';
 export class ApplyServiceDirective {
 
   constructor( @Inject(UserToken) clientService: UserDataService) {
-    console.log('log');
     clientService.user.pipe(tap(console.log));
   }
 

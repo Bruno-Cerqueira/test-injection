@@ -8,7 +8,11 @@ export interface ICounter {
 }
 
 export const counterReducer = createReducer(
-  [] as ICounter[],
+  [{
+    id: 0,
+    userId: 0,
+    value: 0,
+  }],
   on(increment, (state, { counterId }) =>  {
     return incrementCounter(state, counterId)
   }),
@@ -23,14 +27,17 @@ export const counterReducer = createReducer(
 
 const incrementCounter = (state: ICounter[], counterId: number) => {
   return state.map(counter => {
-    if(counter.id == counterId) counter.value + 1
-    return counter
+    const newCounter = {...counter}
+    if(newCounter.id == counterId) {
+      newCounter.value+= 1
+    } 
+    return newCounter
   })
 }
 
 const decrementCounter = (state: ICounter[], counterId: number) => {
   return state.map(counter => {
-    if(counter.id == counterId) counter.value - 1
+    if(counter.id == counterId) counter.value-= 1
     return counter
   })
 }
