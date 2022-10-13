@@ -14,38 +14,35 @@ export const counterReducer = createReducer(
     value: 0,
   }],
   on(increment, (state, { counterId }) =>  {
-    return incrementCounter(state, counterId)
+    return counterManipulation(state, counterId, addValue)
   }),
   on(decrement, (state, { counterId }) =>  {
-    return decrementCounter(state, counterId)
+    return counterManipulation(state, counterId, restValue)
   }),
   on(reset, (state, { counterId }) =>  {
-    return resetCounter(state, counterId)
+    return counterManipulation(state, counterId, resetValue)
   })
 );
 
+const resetValue = (counter: ICounter) => {
+  counter.value = 0;
+}
 
-const incrementCounter = (state: ICounter[], counterId: number) => {
+const restValue = (counter: ICounter) => {
+  counter.value-= 1;
+}
+
+
+const addValue = (counter: ICounter) => {
+  counter.value+= 1;
+}
+
+const counterManipulation = (state: ICounter[], counterId: number, counterManipulation: Function) => {
   return state.map(counter => {
     const newCounter = {...counter}
     if(newCounter.id == counterId) {
-      newCounter.value+= 1
+      counterManipulation(newCounter)
     } 
     return newCounter
   })
 }
-
-const decrementCounter = (state: ICounter[], counterId: number) => {
-  return state.map(counter => {
-    if(counter.id == counterId) counter.value-= 1
-    return counter
-  })
-}
-
-const resetCounter = (state: ICounter[], counterId: number) => {
-  return state.map(counter => {
-    if(counter.id == counterId) counter.value = 0
-    return counter
-  })
-}
-
